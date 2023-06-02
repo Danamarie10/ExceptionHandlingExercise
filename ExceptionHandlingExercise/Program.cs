@@ -17,7 +17,30 @@ namespace ExceptionHandlingExercise
             // and Exceptions will be thrown 
             // Below we will set this up 
             // ------------------------------------------------------------------------------
+            char[] arr = { '1', '2', '3', '4', '5', '6', 'A', 'B', 'C' };
+            List<int> numbers = new List<int>();
+            string str = "";
 
+            foreach (char c in arr)
+            {
+                try
+                {
+                    int number = int.Parse(c.ToString());
+                    numbers.Add(number);
+                }
+                catch 
+                    {
+                    str += c.ToString();
+                }
+            }
+            Console.WriteLine("Parsed numbers: ");
+
+            foreach (int number in numbers)
+            {
+                Console.WriteLine(number);
+            }
+            Console.WriteLine("Non-Numeric Characters: ");
+            Console.WriteLine(str);
 
 
             //TODO START HERE:
@@ -36,13 +59,32 @@ namespace ExceptionHandlingExercise
                 // in the scope of your catch you can use the following, 
                 
                     //Console.WriteLine($"Unable to Parse '{character}'"); //character will be the name of each item in your collection
-                
-            
+                foreach (char character in arr)
+            {
+                try
+                {
+                    str = character.ToString();
+                    int number = int.Parse(str);
+                    numbers.Add(number);
+
+                }
+                catch(Exception) 
+                {
+                    Console.WriteLine($"Unable to Parse '{character}");
+                }
+            }
+
+
 
             //foreach (var num in numbers)
             //{
             //    Console.WriteLine(num);
             //}
+            Console.WriteLine("Parsed Numbers: ");
+            foreach (int number in numbers)
+            {
+                Console.WriteLine(number);
+            }
         }
     }
 }
